@@ -14,6 +14,7 @@ Agent routing table. Find the right doc for any task.
 | See project roadmap / status | [docs/roadmap.md](roadmap.md) |
 | See recent changes | [docs/changelog.md](changelog.md) |
 | Run or write tests | [docs/testing.md](testing.md) |
+| Use GitHub / gh CLI / agents | [docs/github-workflow.md](github-workflow.md) |
 | Understand profile inheritance rules | [BambuStudio-2.5.0.66/resources/profiles/Profile_rules.md](../BambuStudio-2.5.0.66/resources/profiles/Profile_rules.md) |
 | Understand profile inheritance chains | [BambuStudio-2.5.0.66/resources/profiles/Profile_inheritance_chain.md](../BambuStudio-2.5.0.66/resources/profiles/Profile_inheritance_chain.md) |
 
@@ -32,6 +33,7 @@ docs/
   changelog.md               <- Recent changes, rename history
   testing.md                 <- Catch2 setup, running tests
   profile-system.md          <- Profile overview + pointers to detailed docs
+  github-workflow.md         <- GitHub setup, gh CLI, agent workflow
   archive/                   <- Historical docs (not for daily use)
 tools/profile_converter/
   README.md                  <- Consolidated converter docs (CLI + GUI + interactive)

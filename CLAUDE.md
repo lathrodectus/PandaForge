@@ -30,6 +30,7 @@ This file provides guidance to Claude Code when working with this repository.
 | See project roadmap / status | `docs/roadmap.md` |
 | See recent changes | `docs/changelog.md` |
 | Run or write tests | `docs/testing.md` |
+| Use GitHub / gh CLI / agents | `docs/github-workflow.md` |
 | Full documentation index | `docs/INDEX.md` |
 
 ## Critical Rules

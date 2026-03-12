@@ -13,7 +13,7 @@ Pandaforge is a macOS-native BambuStudio fork optimized for Klipper printers. Cr
 
 ### Phase 0: Foundation -- COMPLETE
 
-**Goal:** Working BambuStudio binary
+**Goal:** Working BambuStudio binary + GitHub setup
 
 | Task | Status |
 |---|---|
@@ -22,6 +22,9 @@ Pandaforge is a macOS-native BambuStudio fork optimized for Klipper printers. Cr
 | Build dependencies (`BambuStudio_dep_2.5.0.66`) | Done |
 | Build BambuStudio binary | Done |
 | Document build process | Done |
+| Push to GitHub | Done |
+| Configure git remotes (origin + upstream) | Done |
+| Document GitHub workflow | Done |
 
 ### Phase 1: Klipper Integration -- IN PROGRESS
 
@@ -85,13 +88,19 @@ Pandaforge is a macOS-native BambuStudio fork optimized for Klipper printers. Cr
 
 ```
 main                    # Stable releases
-├── develop             # Integration branch
 ├── feature/klipper-ui  # Klipper UI components
 ├── feature/moonraker   # Moonraker integration
-└── hotfix/build-fixes  # Build system fixes
+├── feature/profile-converter # Profile converter UI
+└── fix/build-fixes     # Build system fixes
 ```
 
-GitHub: `https://github.com/lathrodectus/pandaforge`
+**Repository:** https://github.com/lathrodectus/PandaForge
+
+**Remotes:**
+- `origin` - https://github.com/lathrodectus/PandaForge.git (your fork)
+- `upstream` - https://github.com/bambulab/BambuStudio.git (BambuStudio official)
+
+**Workflow:** See [docs/github-workflow.md](github-workflow.md) for GitHub CLI usage and agent strategies
 
 ## Next Steps
 
