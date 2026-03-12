@@ -1,0 +1,39 @@
+{
+    "type": "filament",
+    "name": "Qidi Generic ABS @Qidi X-Plus 4 0.4 nozzle",
+    "inherits": "Qidi Generic ABS",
+    "from": "system",
+    "setting_id": "GFSA04",
+    "filament_id": "GFB99",
+    "instantiation": "true",
+    "nozzle_temperature": [
+        "250"
+    ],
+    "hot_plate_temp": [
+        "90"
+    ],
+    "hot_plate_temp_initial_layer": [
+        "90"
+    ],
+    "pressure_advance": [
+        "0.03"
+    ],
+    "slow_down_layer_time": [
+        "4"
+    ],
+    "slow_down_min_speed": [
+        "20"
+    ],
+    "fan_min_speed": [
+        "10"
+    ],
+    "fan_max_speed": [
+        "80"
+    ],
+    "compatible_printers": [
+        "Qidi X-Plus 4 0.4 nozzle"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ]
+}

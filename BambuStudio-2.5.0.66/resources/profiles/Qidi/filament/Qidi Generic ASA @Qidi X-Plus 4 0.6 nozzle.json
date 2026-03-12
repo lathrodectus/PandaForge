@@ -1,0 +1,30 @@
+{
+    "type": "filament",
+    "name": "Qidi Generic ASA @Qidi X-Plus 4 0.6 nozzle",
+    "inherits": "Qidi Generic ASA",
+    "from": "system",
+    "setting_id": "GFSA04",
+    "filament_id": "GFB99",
+    "instantiation": "true",
+    "filament_max_volumetric_speed": [
+        "13"
+    ],
+    "nozzle_temperature": [
+        "255"
+    ],
+    "nozzle_temperature_initial_layer": [
+        "250"
+    ],
+    "pressure_advance": [
+        "0.014"
+    ],
+    "slow_down_layer_time": [
+        "4"
+    ],
+    "compatible_printers": [
+        "Qidi X-Plus 4 0.6 nozzle"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ]
+}

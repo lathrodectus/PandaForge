@@ -1,0 +1,54 @@
+{
+    "type": "filament",
+    "name": "Generic PPA-GF @base",
+    "inherits": "fdm_filament_ppa",
+    "from": "system",
+    "filament_id": "GFN96",
+    "instantiation": "false",
+    "filament_max_volumetric_speed": [
+        "6"
+    ],
+    "filament_type": [
+        "PPA-GF"
+    ],
+    "filament_vendor": [
+        "Generic"
+    ],
+    "compatible_printers": [
+        "Qidi Q1 Pro 0.2 nozzle",
+        "Qidi Q1 Pro 0.4 nozzle",
+        "Qidi Q1 Pro 0.6 nozzle",
+        "Qidi Q1 Pro 0.8 nozzle",
+        "Qidi Q2 0.2 nozzle",
+        "Qidi Q2 0.4 nozzle",
+        "Qidi Q2 0.6 nozzle",
+        "Qidi Q2 0.8 nozzle",
+        "Qidi Q2C 0.2 nozzle",
+        "Qidi Q2C 0.4 nozzle",
+        "Qidi Q2C 0.6 nozzle",
+        "Qidi Q2C 0.8 nozzle",
+        "Qidi X-CF Pro 0.4 nozzle",
+        "Qidi X-Max 0.4 nozzle",
+        "Qidi X-Max 3 0.2 nozzle",
+        "Qidi X-Max 3 0.4 nozzle",
+        "Qidi X-Max 3 0.6 nozzle",
+        "Qidi X-Max 3 0.8 nozzle",
+        "Qidi X-Max 4 0.2 nozzle",
+        "Qidi X-Max 4 0.4 nozzle",
+        "Qidi X-Max 4 0.6 nozzle",
+        "Qidi X-Max 4 0.8 nozzle",
+        "Qidi X-Plus 0.4 nozzle",
+        "Qidi X-Plus 3 0.2 nozzle",
+        "Qidi X-Plus 3 0.4 nozzle",
+        "Qidi X-Plus 3 0.6 nozzle",
+        "Qidi X-Plus 3 0.8 nozzle",
+        "Qidi X-Plus 4 0.2 nozzle",
+        "Qidi X-Plus 4 0.4 nozzle",
+        "Qidi X-Plus 4 0.6 nozzle",
+        "Qidi X-Plus 4 0.8 nozzle",
+        "Qidi X-Smart 3 0.2 nozzle",
+        "Qidi X-Smart 3 0.4 nozzle",
+        "Qidi X-Smart 3 0.6 nozzle",
+        "Qidi X-Smart 3 0.8 nozzle"
+    ]
+}

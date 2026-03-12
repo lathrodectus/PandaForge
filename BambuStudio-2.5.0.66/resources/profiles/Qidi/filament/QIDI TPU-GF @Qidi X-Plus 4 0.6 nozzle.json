@@ -1,0 +1,18 @@
+{
+    "type": "filament",
+    "name": "QIDI TPU-GF @Qidi X-Plus 4 0.6 nozzle",
+    "inherits": "QIDI TPU-GF",
+    "from": "system",
+    "setting_id": "GFSR99",
+    "filament_id": "GFL819",
+    "instantiation": "true",
+    "compatible_printers": [
+        "Qidi X-Plus 4 0.6 nozzle"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "pressure_advance": [
+        "0.025"
+    ]
+}

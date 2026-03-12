@@ -1,0 +1,11 @@
+{
+    "type": "process",
+    "name": "0.16mm Optimal @Test F5T",
+    "inherits": "fdm_process_f5t_single_0.16",
+    "from": "system",
+    "setting_id": "GP_F5T_016",
+    "instantiation": "true",
+    "description": "Optimal quality printing with good detail and reasonable print time.",
+    "compatible_printers": ["Test F5T 0.4 Nozzle"],
+    "filename_format": "{input_filename_base}_{filament_type[0]}_{print_time}.gcode"
+}

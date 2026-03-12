@@ -1,0 +1,22 @@
+{
+    "type": "process",
+    "name": "0.20mm Standard @Flashforge AD5M Pro",
+    "inherits": "fdm_process_flashforge_0.20",
+    "from": "system",
+    "setting_id": "GP007",
+    "instantiation": "true",
+    "description": "Standard printing profile with good balance of speed and quality. Suitable for most general printing cases.",
+    "bridge_speed": "45",
+    "default_acceleration": "15000",
+    "initial_layer_speed": "45",
+    "outer_wall_acceleration": "6000",
+    "overhang_totally_speed": "10",
+    "support_interface_speed": "80",
+    "support_speed": "180",
+    "top_surface_speed": "180",
+    "top_surface_acceleration": "3000",
+    "travel_acceleration": "15000",
+    "travel_speed": "450",
+    "filename_format": "{input_filename_base}_{filament_type[0]}_{print_time}.gcode",
+    "compatible_printers": ["Flashforge Adventurer 5M Pro 0.4 Nozzle"]
+}

@@ -1,0 +1,12 @@
+.DS_Store
+.claude/settings.local.json
+.abacusai/
+OrcaSlicer-main/
+BambuStudio_dep_2.5.0.66/
+BambuStudio-2.5.0.66/deps/build/
+BambuStudio-2.5.0.66/build/
+BambuStudio-2.5.0.66/install_dir/
+*.gcode
+*.png
+*.pyc
+__pycache__/

@@ -1,0 +1,21 @@
+{
+    "type": "filament",
+    "name": "Generic ASA @MyToolChanger",
+    "inherits": "Generic ASA @System",
+    "from": "system",
+    "setting_id": "GFB98_MTC_0",
+    "filament_id": "GFL107",
+    "instantiation": "true",
+    "compatible_printers": [
+        "MyToolChanger 0.4 nozzle",
+        "MyToolChanger 0.2 nozzle",
+        "MyToolChanger 0.6 nozzle",
+        "MyToolChanger 0.8 nozzle"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "pressure_advance": [
+        "0.025"
+    ]
+}

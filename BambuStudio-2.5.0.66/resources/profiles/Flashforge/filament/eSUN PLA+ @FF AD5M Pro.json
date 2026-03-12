@@ -1,0 +1,14 @@
+{
+    "type": "filament",
+    "name": "eSUN PLA+ @FF AD5M Pro",
+    "inherits": "eSUN PLA+ @base",
+    "from": "system",
+    "setting_id": "ESUN01_AD5M",
+    "instantiation": "true",
+    "compatible_printers": [
+        "Flashforge Adventurer 5M Pro 0.25 Nozzle",
+        "Flashforge Adventurer 5M Pro 0.4 Nozzle",
+        "Flashforge Adventurer 5M Pro 0.6 Nozzle",
+        "Flashforge Adventurer 5M Pro 0.8 Nozzle"
+    ]
+}

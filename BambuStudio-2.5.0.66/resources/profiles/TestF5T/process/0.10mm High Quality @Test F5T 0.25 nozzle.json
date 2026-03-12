@@ -1,0 +1,11 @@
+{
+    "type": "process",
+    "name": "0.10mm High Quality @Test F5T 0.25 nozzle",
+    "inherits": "fdm_process_f5t_single_0.10_nozzle_0.25",
+    "from": "system",
+    "setting_id": "GP_F5T_010_025",
+    "instantiation": "true",
+    "description": "High quality printing with 0.25mm nozzle. Very small layer lines for detailed prints.",
+    "compatible_printers": ["Test F5T 0.25 Nozzle"],
+    "filename_format": "{input_filename_base}_{filament_type[0]}_{print_time}.gcode"
+}

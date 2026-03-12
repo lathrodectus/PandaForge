@@ -1,0 +1,36 @@
+{
+    "type": "filament",
+    "name": "QIDI PLA Matte Basic @Qidi X-Plus 4 0.4 nozzle",
+    "inherits": "QIDI PLA Matte Basic",
+    "from": "system",
+    "setting_id": "GFSA04",
+    "filament_id": "QD_0_1_8",
+    "instantiation": "true",
+    "filament_max_volumetric_speed": [
+        "18"
+    ],
+    "nozzle_temperature": [
+        "210"
+    ],
+    "hot_plate_temp": [
+        "60"
+    ],
+    "hot_plate_temp_initial_layer": [
+        "60"
+    ],
+    "pressure_advance": [
+        "0.034"
+    ],
+    "slow_down_min_speed": [
+        "20"
+    ],
+    "additional_cooling_fan_speed": [
+        "100"
+    ],
+    "compatible_printers": [
+        "Qidi X-Plus 4 0.4 nozzle"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ]
+}

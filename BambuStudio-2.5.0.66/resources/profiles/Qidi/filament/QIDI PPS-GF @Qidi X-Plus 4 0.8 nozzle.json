@@ -1,0 +1,18 @@
+{
+    "type": "filament",
+    "name": "QIDI PPS-GF @Qidi X-Plus 4 0.8 nozzle",
+    "inherits": "QIDI PPS-GF",
+    "from": "system",
+    "setting_id": "GFSN99",
+    "filament_id": "GFL735",
+    "instantiation": "true",
+    "pressure_advance": [
+        "0.008"
+    ],
+    "compatible_printers": [
+        "Qidi X-Plus 4 0.8 nozzle"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ]
+}

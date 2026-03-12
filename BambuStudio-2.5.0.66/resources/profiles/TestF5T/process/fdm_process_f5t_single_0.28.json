@@ -1,0 +1,17 @@
+{
+    "type": "process",
+    "name": "fdm_process_f5t_single_0.28",
+    "inherits": "fdm_process_f5t_single_common",
+    "from": "system",
+    "instantiation": "false",
+    "layer_height": "0.28",
+    "initial_layer_print_height": "0.32",
+    "gap_infill_speed": "400",
+    "initial_layer_infill_speed": "130",
+    "initial_layer_speed": "55",
+    "inner_wall_speed": "400",
+    "internal_solid_infill_speed": "400",
+    "outer_wall_speed": "220",
+    "sparse_infill_speed": "450",
+    "default_acceleration": "20000"
+}

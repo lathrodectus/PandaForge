@@ -1,0 +1,11 @@
+{
+    "type": "process",
+    "name": "0.40mm Standard @Test F5T 0.8 nozzle",
+    "inherits": "fdm_process_f5t_single_0.40_nozzle_0.8",
+    "from": "system",
+    "setting_id": "GP_F5T_040_08",
+    "instantiation": "true",
+    "description": "Default profile for 0.8mm nozzle. Fast printing with larger layer height.",
+    "compatible_printers": ["Test F5T 0.8 Nozzle"],
+    "filename_format": "{input_filename_base}_{filament_type[0]}_{print_time}.gcode"
+}

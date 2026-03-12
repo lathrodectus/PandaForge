@@ -1,0 +1,66 @@
+{
+    "type": "filament",
+    "name": "Generic PLA Matte @FF AD5M Pro",
+    "inherits": "fdm_filament_pla",
+    "from": "system",
+    "setting_id": "GFPLA03",
+    "filament_id": "GFL03",
+    "instantiation": "true",
+    "filament_flow_ratio": [
+        "0.98"
+    ],
+    "filament_max_volumetric_speed": [
+        "22"
+    ],
+    "hot_plate_temp_initial_layer": [
+        "65"
+    ],
+    "hot_plate_temp": [
+        "60"
+    ],
+    "slow_down_layer_time": [
+        "8"
+    ],
+    "slow_down_min_speed": [
+        "15"
+    ],
+    "support_material_interface_fan_speed": [
+        "100"
+    ],
+    "additional_cooling_fan_speed": [
+        "100"
+    ],
+    "filament_start_gcode": [
+        "; filament start gcode\n;right_extruder_material: PLA Matte\n"
+    ],
+    "filament_end_gcode": [
+        "; filament end gcode\n"
+    ],
+    "filament_diameter": [
+        "1.75"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "pressure_advance": [
+        "0.03"
+    ],
+    "nozzle_temperature_initial_layer": [
+        "220"
+    ],
+    "nozzle_temperature": [
+        "215"
+    ],
+    "nozzle_temperature_range_high": [
+        "235"
+    ],
+    "nozzle_temperature_range_low": [
+        "195"
+    ],
+    "compatible_printers": [
+        "Flashforge Adventurer 5M Pro 0.25 Nozzle",
+        "Flashforge Adventurer 5M Pro 0.4 Nozzle",
+        "Flashforge Adventurer 5M Pro 0.6 Nozzle",
+        "Flashforge Adventurer 5M Pro 0.8 Nozzle"
+    ]
+}

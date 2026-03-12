@@ -1,0 +1,48 @@
+{
+    "type": "machine",
+    "name": "Qidi X-Max 3 0.4 nozzle",
+    "inherits": "fdm_qidi_x3_common",
+    "from": "system",
+    "setting_id": "GM001",
+    "instantiation": "true",
+    "printer_model": "Qidi X-Max 3",
+    "gcode_flavor": "klipper",
+    "nozzle_diameter": [
+        "0.4"
+    ],
+    "printable_area": [
+        "0x0",
+        "325x0",
+        "325x325",
+        "0x325"
+    ],
+    "printable_height": "315",
+    "nozzle_type": "hardened_steel",
+    "auxiliary_fan": "1",
+    "default_print_profile": "0.20mm Standard @Qidi XMax3",
+    "default_filament_profile": [
+        "Qidi Generic PLA"
+    ],
+    "retraction_length": [
+        "1"
+    ],
+    "deretraction_speed": [
+        "0"
+    ],
+    "retraction_minimum_travel": [
+        "1"
+    ],
+    "change_filament_gcode": "",
+    "machine_pause_gcode": "PAUSE",
+    "max_layer_height": [
+        "0.32"
+    ],
+    "min_layer_height": [
+        "0.08"
+    ],
+    "extruder_clearance_radius": "70",
+    "extruder_clearance_height_to_rod": "30",
+    "extruder_clearance_height_to_lid": "118",
+    "printer_settings_id": "Qidi",
+    "printer_variant": "0.4"
+}

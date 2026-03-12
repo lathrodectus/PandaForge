@@ -1,0 +1,46 @@
+{
+    "type": "process",
+    "name": "0.20mm Balanced Strength @X-Max 4",
+    "inherits": "fdm_process_n_common",
+    "from": "system",
+    "setting_id": "GP004",
+    "instantiation": "true",
+    "wall_loops": "2",
+    "top_shell_layers": "6",
+    "bottom_shell_layers": "4",
+    "sparse_infill_density": "15%",
+    "outer_wall_speed": [
+        "60"
+    ],
+    "inner_wall_speed": [
+        "300"
+    ],
+    "sparse_infill_speed": [
+        "270"
+    ],
+    "internal_solid_infill_speed": [
+        "250"
+    ],
+    "top_surface_speed": [
+        "200"
+    ],
+    "default_acceleration": [
+        "10000"
+    ],
+    "outer_wall_acceleration": [
+        "3000"
+    ],
+    "inner_wall_acceleration": [
+        "5000"
+    ],
+    "overhang_2_4_speed": [
+        "50"
+    ],
+    "overhang_3_4_speed": [
+        "10"
+    ],
+    "enable_arc_fitting": "1",
+    "compatible_printers": [
+        "Qidi X-Max 4 0.4 nozzle"
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "type": "filament",
+    "name": "QIDI PLA Basic @Qidi X-Plus 4 0.2 nozzle",
+    "inherits": "QIDI PLA Basic",
+    "from": "system",
+    "setting_id": "GFSA04",
+    "filament_id": "QD_0_1_7",
+    "instantiation": "true",
+    "filament_max_volumetric_speed": [
+        "2"
+    ],
+    "nozzle_temperature": [
+        "210"
+    ],
+    "hot_plate_temp": [
+        "60"
+    ],
+    "hot_plate_temp_initial_layer": [
+        "60"
+    ],
+    "pressure_advance": [
+        "0.034"
+    ],
+    "slow_down_min_speed": [
+        "20"
+    ],
+    "compatible_printers": [
+        "Qidi X-Plus 4 0.2 nozzle"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ]
+}
