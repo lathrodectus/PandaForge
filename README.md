@@ -1,4 +1,21 @@
 ![image](https://user-images.githubusercontent.com/106916061/179006347-497d24c0-9bd6-45b7-8c49-d5cc8ecfe5d7.png)
+# Pandaforge
+
+Pandaforge is a fork of BambuStudio v2.5.0.66 focused on Klipper users.
+
+Its aim is to let users open MakerWorld `.3mf` projects on Klipper-based printers without losing the project settings chosen by the original submitter.
+
+Currently converted printers:
+- Flashforge Adventurer 5M Pro
+- Flashforge AD5X
+- Qidi Q2
+- Qidi X-Plus 4
+- Qidi X-Max 4
+
+The original BambuStudio README continues below.
+
+---
+
 # BambuStudio
 Bambu Studio is a cutting-edge, feature-rich slicing software.  
 It contains project-based workflows, systematically optimized slicing algorithms, and an easy-to-use graphic interface, bringing users an incredibly smooth printing experience.
