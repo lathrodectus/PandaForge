@@ -4243,6 +4243,21 @@ void TabFilament::toggle_options()
             m_preset_bundle->printers.get_edited_preset().is_bbl_vendor_preset(
                 m_preset_bundle);
     }
+    const VendorProfile::PrinterModel* printer_model = wxGetApp().plater() ? wxGetApp().plater()->get_curr_printer_model() : nullptr;
+    const ConfigOptionDef* bed_type_def = print_config_def.get("curr_bed_type");
+    auto supports_bed_type = [printer_model, bed_type_def](BedType bed_type) {
+        if (printer_model == nullptr || bed_type_def == nullptr)
+            return true;
+
+        const int bed_type_idx = int(bed_type);
+        if (bed_type_idx < 0 || bed_type_idx >= int(bed_type_def->enum_labels.size()))
+            return true;
+
+        const auto& bed_type_label = bed_type_def->enum_labels[bed_type_idx];
+        return std::find(printer_model->not_support_bed_types.begin(),
+                         printer_model->not_support_bed_types.end(),
+                         bed_type_label) == printer_model->not_support_bed_types.end();
+    };
     bool is_multi_extruder = m_preset_bundle->printers.get_edited_preset().config.option<ConfigOptionFloatsNullable>("nozzle_diameter")->size() > 1;
 
     if (m_active_page->title() == "Cooling")
@@ -4279,8 +4294,16 @@ void TabFilament::toggle_options()
         bool support_chamber_temp_control = this->m_preset_bundle->printers.get_edited_preset().config.opt_bool("support_chamber_temp_control");
         toggle_line("chamber_temperatures", support_chamber_temp_control);
 
-        for (auto el : {"supertack_plate_temp", "supertack_plate_temp_initial_layer", "cool_plate_temp", "cool_plate_temp_initial_layer", "eng_plate_temp", "eng_plate_temp_initial_layer", "textured_plate_temp", "textured_plate_temp_initial_layer"})
-            toggle_line(el, is_BBL_printer);
+        toggle_line("supertack_plate_temp", supports_bed_type(BedType::btSuperTack));
+        toggle_line("supertack_plate_temp_initial_layer", supports_bed_type(BedType::btSuperTack));
+        toggle_line("cool_plate_temp", supports_bed_type(BedType::btPC));
+        toggle_line("cool_plate_temp_initial_layer", supports_bed_type(BedType::btPC));
+        toggle_line("eng_plate_temp", supports_bed_type(BedType::btEP));
+        toggle_line("eng_plate_temp_initial_layer", supports_bed_type(BedType::btEP));
+        toggle_line("hot_plate_temp", supports_bed_type(BedType::btPEI));
+        toggle_line("hot_plate_temp_initial_layer", supports_bed_type(BedType::btPEI));
+        toggle_line("textured_plate_temp", supports_bed_type(BedType::btPTE));
+        toggle_line("textured_plate_temp_initial_layer", supports_bed_type(BedType::btPTE));
 
         std::string volumetric_speed_cos = m_config->opt_string("volumetric_speed_coefficients", (unsigned int)(m_variant_combo->GetSelection()));
         bool enable_fit = volumetric_speed_cos != "0 0 0 0 0 0";

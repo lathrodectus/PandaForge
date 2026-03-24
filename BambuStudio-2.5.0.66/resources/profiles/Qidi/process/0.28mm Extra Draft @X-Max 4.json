@@ -1,0 +1,12 @@
+{
+    "type": "process",
+    "name": "0.28mm Extra Draft @X-Max 4",
+    "inherits": "0.24mm Draft @X-Max 4",
+    "from": "system",
+    "setting_id": "GP_QIDI_XMAX4_028_XD_040",
+    "instantiation": "true",
+    "layer_height": "0.28",
+    "compatible_printers": [
+        "Qidi X-Max 4 0.4 nozzle"
+    ]
+}

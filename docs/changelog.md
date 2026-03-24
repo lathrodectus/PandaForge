@@ -4,6 +4,55 @@ Living document tracking recent changes to the Pandaforge project.
 
 ## Recent Changes
 
+### March 24, 2026 -- Converted Printer Cards Match Bambu Layout In Main Window
+- Removed the plater/sidebar special-case layout that rendered non-Bambu printers horizontally, so converted printers now use the same stacked thumbnail-over-name card layout as Bambu printers in the selected-printer panel
+- Standardized the selected-printer card sizing in `Plater.cpp` so converted printers use the same panel dimensions as the built-in Bambu profiles instead of the wider third-party card variant
+- Fixed the follow-up clipping bug where converted-printer names disappeared in the main window because the stacked card height still depended on the visible Bambu sync button; the selected-printer panels now keep Bambu-height spacing even when that button is hidden
+- Fixed the filament-settings plate-temperature UI for converted printers by showing bed-temperature rows according to the active printer model's supported bed types instead of hiding them for every non-Bambu vendor preset
+
+### March 24, 2026 -- AD5X Process Ladder Aligned For MakerWorld Matching
+- Expanded the Flashforge AD5X process ladder so the 0.4, 0.6, and 0.8 nozzle variants expose the same major layer-height tiers Pandaforge users are likely to encounter from Bambu X1 and A1 MakerWorld projects
+- Reworked AD5X process inheritance so each preset now inherits from the matching AD5M Pro parent instead of faking missing tiers from a smaller subset
+- Added missing AD5X 0.4 nozzle quality tiers (`0.08`, `0.12`, `0.16`, `0.20 Strength`, `0.28 Extra Draft`)
+- Added missing AD5X 0.6 nozzle tiers (`0.18 Standard`, `0.24 Standard`, `0.30 Strength`, `0.36 Standard`, `0.42 Standard`)
+- Added missing AD5X 0.8 nozzle tiers (`0.24 Standard`, `0.32 Standard`, `0.48 Standard`, `0.56 Standard`)
+- Cleaned up AD5X 0.25 nozzle inheritance to use the exact imported parent profiles for `0.10`, `0.12`, and `0.14`
+- Updated `Flashforge.json` so Pandaforge loads the expanded AD5X ladder in manifest order
+
+### March 24, 2026 -- Qidi Q2 / X-Plus 4 / X-Max 4 Imported For MakerWorld
+- Added a reduced `Qidi.json` vendor manifest for Qidi Q2, Qidi X-Plus 4, and Qidi X-Max 4 only, with the machine, process, and filament files needed for those families
+- Switched the Qidi machine models to generic PLA/PETG/ABS/ASA defaults instead of carrying over a large vendor filament tree
+- Imported the shared Qidi base machine and process layers required for inheritance, then filled in the missing 0.2, 0.6, and 0.8 nozzle process tiers so each supported nozzle has a complete usable ladder
+- Normalized the X-Max 4 process ladder to X1-style tier names (`High Quality`, `Optimal`, `Standard`, `Strength`, `Draft`) while keeping `renamed_from` aliases for the old Qidi `Balanced` names
+- Expanded the Qidi Q2 0.4 nozzle ladder with MakerWorld-facing parallel tiers: `0.08mm High Quality`, `0.12mm High Quality`, `0.16mm High Quality`, and `0.20mm Strength`
+- Verified the AD5X and Qidi printer/process/filament graphs with focused local QA checks for manifest wiring, inheritance resolution, and expected layer-height coverage
+- Restored the Qidi-local `fdm_filament_*` base presets and repointed the user-facing generic Qidi materials to those local parents so default filaments appear in the UI again
+- Added explicit wizard thumbnail assets for Qidi Q2, Qidi X-Plus 4, and Qidi X-Max 4, and fixed the Q2 hotend asset path typo
+- Fixed the real Qidi bundle load failure by reordering `Qidi.json` so child presets no longer appear before their parents:
+  `0.08mm Extra Fine @Qidi Q2` now follows `0.12mm Fine @Qidi Q2`,
+  `0.08mm Extra Fine @Qidi XPlus4` now follows `0.12mm Fine @Qidi XPlus4`,
+  and each `0.2 nozzle` machine now appears after its `0.4 nozzle` parent
+- Added the wizard thumbnails under the filenames the UI actually resolves from `machine_model_list` names:
+  `Qidi Q2_thumbnail.png`,
+  `Qidi X-Plus 4_thumbnail.png`,
+  and `Qidi X-Max 4_thumbnail.png`
+- Filled the second asset gap for converted printers by matching both UI lookup paths:
+  the setup wizard now has `_thumbnail.png` files for the Flashforge converted models,
+  and the profile guide now has `_cover.png` files for the Qidi converted models
+- Filled the plater/sidebar preview path as well by adding `resources/images/printer_preview_<model_id>.png` assets for the converted Qidi and Flashforge printers, so the selected-printer thumbnail no longer falls back to the placeholder in the main window
+
+### March 21, 2026 -- Flashforge AD5X Profiles Added
+- Added Flashforge AD5X machine model and nozzle variants (0.25, 0.4, 0.6, 0.8)
+- Preserved OrcaSlicer-style multi-material behavior for AD5X:
+  - `single_extruder_multi_material = 1`
+  - toolchange retraction and cut-distance settings
+  - prime tower enabled in AD5X process presets
+- Made AD5X `change_filament_gcode` explicit with `T[next_extruder]` so Pandaforge uses the custom toolchange path instead of an empty-field fallback
+- Added AD5X-specific generic filament presets, including 0.25 nozzle variants
+- Added AD5X process presets for 0.25, 0.4, 0.6, and 0.8 nozzle workflows
+- Updated `Flashforge.json` vendor manifest to expose the new profiles in Pandaforge
+- Added Orca-compatible AD5M/AD5M Pro process aliases so the AD5X process chain resolves through the same parent names Orca uses
+
 ### March 12, 2026 -- GitHub Setup Complete
 - Pushed repository to https://github.com/lathrodectus/PandaForge
 - Configured git remotes: `origin` (fork) and `upstream` (BambuStudio)

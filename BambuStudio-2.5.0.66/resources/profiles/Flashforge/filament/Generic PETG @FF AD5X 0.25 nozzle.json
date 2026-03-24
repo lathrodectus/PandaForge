@@ -1,0 +1,27 @@
+{
+    "type": "filament",
+    "name": "Generic PETG @FF AD5X 0.25 nozzle",
+    "inherits": "Generic PETG @FF AD5X",
+    "from": "system",
+    "setting_id": "GFPET01_AD5X_025",
+    "filament_id": "GFLPETG_AD5X_025",
+    "instantiation": "true",
+    "filament_max_volumetric_speed": [
+        "1.5"
+    ],
+    "pressure_advance": [
+        "0.1"
+    ],
+    "slow_down_min_speed": [
+        "15"
+    ],
+    "fan_max_speed": [
+        "80"
+    ],
+    "compatible_printers": [
+        "Flashforge AD5X 0.25 nozzle"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ]
+}

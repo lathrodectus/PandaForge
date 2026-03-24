@@ -223,7 +223,7 @@ wxDEFINE_EVENT(EVT_HELIO_INPUT_DLG, SimpleEvent);
 
 #define PRINTER_THUMBNAIL_SIZE (wxSize(FromDIP(48), FromDIP(48)))
 #define PRINTER_PANEL_SIZE (wxSize(FromDIP(96), FromDIP(68)))
-#define PRINTER_PANEL_SIZE_3RD_PARTY (wxSize(FromDIP(140), FromDIP(90)))  // PandaForge: Much larger panel for 3rd party printers
+#define PRINTER_STACKED_PANEL_SIZE (wxSize(FromDIP(96), FromDIP(98)))
 #define BTN_SYNC_SIZE (wxSize(FromDIP(96), FromDIP(98)))
 
 static string get_diameter_string(float diameter)
@@ -676,38 +676,29 @@ struct Sidebar::priv
 void Sidebar::priv::layout_printer(bool isBBL, bool isDual)
 {
     isDual = isDual && isBBL;  // It indicates a multi-extruder layout.
-    
-    // PandaForge: Adjust panel size based on printer type
-    panel_printer_preset->SetMinSize(isBBL ? PRINTER_PANEL_SIZE : PRINTER_PANEL_SIZE_3RD_PARTY);
-    panel_printer_bed->SetMinSize(isBBL ? PRINTER_PANEL_SIZE : PRINTER_PANEL_SIZE_3RD_PARTY);
+
+    panel_printer_preset->SetMinSize(PRINTER_STACKED_PANEL_SIZE);
+    panel_printer_bed->SetMinSize(PRINTER_STACKED_PANEL_SIZE);
     
     // Printer - preset
     if (auto sizer = static_cast<wxBoxSizer *>(panel_printer_preset->GetSizer());
-            sizer == nullptr || isBBL != (sizer->GetOrientation() == wxVERTICAL)) {
+            sizer == nullptr || sizer->GetOrientation() != wxVERTICAL) {
         wxBoxSizer *hsizer_printer_btn = new wxBoxSizer(wxHORIZONTAL);
         hsizer_printer_btn->AddStretchSpacer(1);
         hsizer_printer_btn->Add(btn_edit_printer, 0);
         hsizer_printer_btn->Add(btn_connect_printer, 0, wxALIGN_CENTER | wxLEFT, FromDIP(4));
-        combo_printer->SetWindowStyle(combo_printer->GetWindowStyle() & ~wxALIGN_MASK | (isBBL ? wxALIGN_CENTER_HORIZONTAL : wxALIGN_RIGHT));
-        if (isBBL) {
-            wxBoxSizer *vsizer = new wxBoxSizer(wxVERTICAL);
-            wxBoxSizer *hsizer = new wxBoxSizer(wxHORIZONTAL);
-            hsizer->AddStretchSpacer(1);
-            hsizer->Add(image_printer, 0, wxEXPAND | wxTOP, FromDIP(8));
-            hsizer->Add(hsizer_printer_btn, 1, wxEXPAND, 0);
-            hsizer->AddSpacer(FromDIP(6));
-            vsizer->AddSpacer(FromDIP(4));
-            vsizer->Add(hsizer, 0, wxEXPAND | wxLEFT | wxRIGHT, FromDIP(8));
-            vsizer->Add(combo_printer, 0, wxEXPAND | wxALL, FromDIP(4));
-            panel_printer_preset->SetSizer(vsizer);
-        } else {
-            wxBoxSizer *hsizer = new wxBoxSizer(wxHORIZONTAL);
-            hsizer->Add(image_printer, 0, wxLEFT | wxALIGN_CENTER, FromDIP(4));
-            hsizer->Add(combo_printer, 1, wxALIGN_CENTRE | wxLEFT | wxRIGHT, FromDIP(6));
-            hsizer->Add(hsizer_printer_btn, 0, wxALIGN_TOP | wxTOP | wxRIGHT, FromDIP(4));
-            hsizer->AddSpacer(FromDIP(10));
-            panel_printer_preset->SetSizer(hsizer);
-        }
+        combo_printer->SetWindowStyle(combo_printer->GetWindowStyle() & ~wxALIGN_MASK | wxALIGN_CENTER_HORIZONTAL);
+
+        wxBoxSizer *vsizer = new wxBoxSizer(wxVERTICAL);
+        wxBoxSizer *hsizer = new wxBoxSizer(wxHORIZONTAL);
+        hsizer->AddStretchSpacer(1);
+        hsizer->Add(image_printer, 0, wxEXPAND | wxTOP, FromDIP(8));
+        hsizer->Add(hsizer_printer_btn, 1, wxEXPAND, 0);
+        hsizer->AddSpacer(FromDIP(6));
+        vsizer->AddSpacer(FromDIP(4));
+        vsizer->Add(hsizer, 0, wxEXPAND | wxLEFT | wxRIGHT, FromDIP(8));
+        vsizer->Add(combo_printer, 0, wxEXPAND | wxALL, FromDIP(4));
+        panel_printer_preset->SetSizer(vsizer);
     }
 
     if (vsizer_printer->GetItemCount() == 0) {
@@ -734,11 +725,9 @@ void Sidebar::priv::layout_printer(bool isBBL, bool isDual)
 
     btn_connect_printer->Show(!isBBL);
     btn_sync_printer->Show(isBBL);
-    // PandaForge: Enable bed plate and nozzle selectors for 3rd party printers
     panel_printer_bed->Show(true);
     vsizer_printer->GetItem(2)->GetSizer()->GetItem(1)->Show(isDual);
     vsizer_printer->GetItem(2)->Show(isBBL && isDual);
-    // PandaForge: Show single extruder controls for all printers (not just BBL)
     vsizer_printer->GetItem(3)->Show(!isDual);
 }
 
@@ -1913,7 +1902,7 @@ Sidebar::Sidebar(Plater *parent)
         p->panel_printer_preset = new StaticBox(p->m_panel_printer_content);
         p->panel_printer_preset->SetCornerRadius(8);
         p->panel_printer_preset->SetBorderColor(panel_bd_col);
-        p->panel_printer_preset->SetMinSize(PRINTER_PANEL_SIZE);
+        p->panel_printer_preset->SetMinSize(PRINTER_STACKED_PANEL_SIZE);
         p->panel_printer_preset->Bind(wxEVT_LEFT_DOWN, [this](auto & evt) {
             p->combo_printer->wxEvtHandler::ProcessEvent(evt);
         });
@@ -1960,7 +1949,7 @@ Sidebar::Sidebar(Plater *parent)
         p->panel_printer_bed = new StaticBox(p->m_panel_printer_content);
         p->panel_printer_bed->SetCornerRadius(8);
         p->panel_printer_bed->SetBorderColor(panel_bd_col);
-        p->panel_printer_bed->SetMinSize(PRINTER_PANEL_SIZE);
+        p->panel_printer_bed->SetMinSize(PRINTER_STACKED_PANEL_SIZE);
         p->panel_printer_bed->Bind(wxEVT_LEFT_DOWN, [this](auto &evt) {
             p->combo_printer_bed->wxEvtHandler::ProcessEvent(evt);
         });
@@ -3001,9 +2990,8 @@ void Sidebar::msw_rescale()
 
     p->btn_sync_printer->SetPaddingSize({FromDIP(6), FromDIP(12)});
     p->btn_sync_printer->SetMinSize(BTN_SYNC_SIZE);
-    // PandaForge: Use appropriate panel size based on printer type
-    bool isBBLPrinter = wxGetApp().preset_bundle->printers.get_edited_preset().is_bbl_vendor_preset(wxGetApp().preset_bundle);
-    p->panel_printer_bed->SetMinSize(isBBLPrinter ? PRINTER_PANEL_SIZE : PRINTER_PANEL_SIZE_3RD_PARTY);
+    p->panel_printer_preset->SetMinSize(PRINTER_STACKED_PANEL_SIZE);
+    p->panel_printer_bed->SetMinSize(PRINTER_STACKED_PANEL_SIZE);
     p->btn_sync_printer->Rescale();
 #if 0
     if (p->mode_sizer)

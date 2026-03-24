@@ -1,0 +1,27 @@
+{
+    "type": "filament",
+    "name": "Generic ABS @FF AD5X 0.25 nozzle",
+    "inherits": "Generic ABS @FF AD5X",
+    "from": "system",
+    "setting_id": "GFABS01_AD5X_025",
+    "filament_id": "GFLABS_AD5X_025",
+    "instantiation": "true",
+    "filament_flow_ratio": [
+        "1"
+    ],
+    "filament_max_volumetric_speed": [
+        "2"
+    ],
+    "pressure_advance": [
+        "0.1"
+    ],
+    "fan_max_speed": [
+        "50"
+    ],
+    "compatible_printers": [
+        "Flashforge AD5X 0.25 nozzle"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ]
+}
