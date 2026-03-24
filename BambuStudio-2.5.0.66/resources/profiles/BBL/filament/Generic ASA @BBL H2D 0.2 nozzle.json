@@ -1,0 +1,82 @@
+{
+    "type": "filament",
+    "name": "Generic ASA @BBL H2D 0.2 nozzle",
+    "inherits": "Generic ASA @base",
+    "from": "system",
+    "setting_id": "GFSB98_05",
+    "instantiation": "true",
+    "chamber_temperatures": [
+        "60"
+    ],
+    "filament_cooling_before_tower": [
+        "10",
+        "10"
+    ],
+    "filament_max_volumetric_speed": [
+        "2",
+        "2"
+    ],
+    "filament_ramming_travel_time": [
+        "0",
+        "0"
+    ],
+    "include": [
+        "fdm_filament_template_direct_dual"
+    ],
+    "nozzle_temperature": [
+        "260",
+        "260"
+    ],
+    "nozzle_temperature_initial_layer": [
+        "260",
+        "260"
+    ],
+    "slow_down_min_speed": [
+        "20",
+        "20"
+    ],
+    "compatible_printers": [
+        "Bambu Lab H2D 0.2 nozzle",
+        "Qidi Q1 Pro 0.2 nozzle",
+        "Qidi Q1 Pro 0.4 nozzle",
+        "Qidi Q1 Pro 0.6 nozzle",
+        "Qidi Q1 Pro 0.8 nozzle",
+        "Qidi Q2 0.2 nozzle",
+        "Qidi Q2 0.4 nozzle",
+        "Qidi Q2 0.6 nozzle",
+        "Qidi Q2 0.8 nozzle",
+        "Qidi Q2C 0.2 nozzle",
+        "Qidi Q2C 0.4 nozzle",
+        "Qidi Q2C 0.6 nozzle",
+        "Qidi Q2C 0.8 nozzle",
+        "Qidi X-CF Pro 0.4 nozzle",
+        "Qidi X-Max 0.4 nozzle",
+        "Qidi X-Max 3 0.2 nozzle",
+        "Qidi X-Max 3 0.4 nozzle",
+        "Qidi X-Max 3 0.6 nozzle",
+        "Qidi X-Max 3 0.8 nozzle",
+        "Qidi X-Max 4 0.2 nozzle",
+        "Qidi X-Max 4 0.4 nozzle",
+        "Qidi X-Max 4 0.6 nozzle",
+        "Qidi X-Max 4 0.8 nozzle",
+        "Qidi X-Plus 0.4 nozzle",
+        "Qidi X-Plus 3 0.2 nozzle",
+        "Qidi X-Plus 3 0.4 nozzle",
+        "Qidi X-Plus 3 0.6 nozzle",
+        "Qidi X-Plus 3 0.8 nozzle",
+        "Qidi X-Plus 4 0.2 nozzle",
+        "Qidi X-Plus 4 0.4 nozzle",
+        "Qidi X-Plus 4 0.6 nozzle",
+        "Qidi X-Plus 4 0.8 nozzle",
+        "Qidi X-Smart 3 0.2 nozzle",
+        "Qidi X-Smart 3 0.4 nozzle",
+        "Qidi X-Smart 3 0.6 nozzle",
+        "Qidi X-Smart 3 0.8 nozzle"
+    ],
+    "filament_start_gcode": [
+        "; filament start gcode\n"
+    ],
+    "filament_end_gcode": [
+        "; filament end gcode \n"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "type": "filament",
+    "name": "SUNLU PLA+ @FF AD5M Pro",
+    "inherits": "SUNLU PLA+ @base",
+    "from": "system",
+    "setting_id": "SUN01_AD5M",
+    "instantiation": "true",
+    "compatible_printers": [
+        "Flashforge Adventurer 5M Pro 0.25 Nozzle",
+        "Flashforge Adventurer 5M Pro 0.4 Nozzle",
+        "Flashforge Adventurer 5M Pro 0.6 Nozzle",
+        "Flashforge Adventurer 5M Pro 0.8 Nozzle"
+    ]
+}

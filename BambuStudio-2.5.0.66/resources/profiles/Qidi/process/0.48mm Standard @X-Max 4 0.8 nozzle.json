@@ -1,0 +1,11 @@
+{
+    "type": "process",
+    "name": "0.48mm Standard @X-Max 4 0.8 nozzle",
+    "inherits": "fdm_process_QIDI_0.48_nozzle_0.8",
+    "from": "system",
+    "setting_id": "GP_QIDI_XMAX4_048_STD_080",
+    "instantiation": "true",
+    "compatible_printers": [
+        "Qidi X-Max 4 0.8 nozzle"
+    ]
+}

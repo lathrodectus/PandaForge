@@ -1,0 +1,66 @@
+{
+    "type": "filament",
+    "name": "Generic PPS @base",
+    "inherits": "fdm_filament_pps",
+    "from": "system",
+    "filament_id": "GFT97",
+    "instantiation": "false",
+    "filament_dev_chamber_drying_bed_temperature": [
+        "90"
+    ],
+    "filament_dev_ams_drying_ams_limitations": [
+        "1"
+    ],
+    "filament_dev_ams_drying_heat_distortion_temperature": [
+        "90"
+    ],
+    "filament_dev_drying_cooling_temperature": [
+        "80"
+    ],
+    "filament_dev_ams_drying_temperature": [
+        "65",
+        "80",
+        "65",
+        "80"
+    ],
+    "filament_dev_drying_softening_temperature": [
+        "85"
+    ],
+    "compatible_printers": [
+        "Qidi Q1 Pro 0.2 nozzle",
+        "Qidi Q1 Pro 0.4 nozzle",
+        "Qidi Q1 Pro 0.6 nozzle",
+        "Qidi Q1 Pro 0.8 nozzle",
+        "Qidi Q2 0.2 nozzle",
+        "Qidi Q2 0.4 nozzle",
+        "Qidi Q2 0.6 nozzle",
+        "Qidi Q2 0.8 nozzle",
+        "Qidi Q2C 0.2 nozzle",
+        "Qidi Q2C 0.4 nozzle",
+        "Qidi Q2C 0.6 nozzle",
+        "Qidi Q2C 0.8 nozzle",
+        "Qidi X-CF Pro 0.4 nozzle",
+        "Qidi X-Max 0.4 nozzle",
+        "Qidi X-Max 3 0.2 nozzle",
+        "Qidi X-Max 3 0.4 nozzle",
+        "Qidi X-Max 3 0.6 nozzle",
+        "Qidi X-Max 3 0.8 nozzle",
+        "Qidi X-Max 4 0.2 nozzle",
+        "Qidi X-Max 4 0.4 nozzle",
+        "Qidi X-Max 4 0.6 nozzle",
+        "Qidi X-Max 4 0.8 nozzle",
+        "Qidi X-Plus 0.4 nozzle",
+        "Qidi X-Plus 3 0.2 nozzle",
+        "Qidi X-Plus 3 0.4 nozzle",
+        "Qidi X-Plus 3 0.6 nozzle",
+        "Qidi X-Plus 3 0.8 nozzle",
+        "Qidi X-Plus 4 0.2 nozzle",
+        "Qidi X-Plus 4 0.4 nozzle",
+        "Qidi X-Plus 4 0.6 nozzle",
+        "Qidi X-Plus 4 0.8 nozzle",
+        "Qidi X-Smart 3 0.2 nozzle",
+        "Qidi X-Smart 3 0.4 nozzle",
+        "Qidi X-Smart 3 0.6 nozzle",
+        "Qidi X-Smart 3 0.8 nozzle"
+    ]
+}

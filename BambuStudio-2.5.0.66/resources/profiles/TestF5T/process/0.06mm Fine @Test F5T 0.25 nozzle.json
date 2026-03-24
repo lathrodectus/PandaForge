@@ -1,0 +1,11 @@
+{
+    "type": "process",
+    "name": "0.06mm Fine @Test F5T 0.25 nozzle",
+    "inherits": "fdm_process_f5t_single_0.06_nozzle_0.25",
+    "from": "system",
+    "setting_id": "GP_F5T_006_025",
+    "instantiation": "true",
+    "description": "Ultra fine detail printing with 0.25mm nozzle. Minimal layer lines for highly detailed models.",
+    "compatible_printers": ["Test F5T 0.25 Nozzle"],
+    "filename_format": "{input_filename_base}_{filament_type[0]}_{print_time}.gcode"
+}

@@ -1,0 +1,12 @@
+{
+    "type": "process",
+    "name": "0.08mm Extra Fine @Qidi XPlus4",
+    "inherits": "0.12mm Fine @Qidi XPlus4",
+    "from": "system",
+    "setting_id": "GP_QIDI_XPLUS4_008_XF",
+    "instantiation": "true",
+    "layer_height": "0.08",
+    "compatible_printers": [
+        "Qidi X-Plus 4 0.4 nozzle"
+    ]
+}

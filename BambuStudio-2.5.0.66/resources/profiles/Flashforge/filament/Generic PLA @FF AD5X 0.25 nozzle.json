@@ -1,0 +1,36 @@
+{
+    "type": "filament",
+    "name": "Generic PLA @FF AD5X 0.25 nozzle",
+    "inherits": "Generic PLA @FF AD5X",
+    "from": "system",
+    "setting_id": "GFPLA01_AD5X_025",
+    "filament_id": "GFLPLA_AD5X_025",
+    "instantiation": "true",
+    "filament_flow_ratio": [
+        "1"
+    ],
+    "filament_max_volumetric_speed": [
+        "2.8"
+    ],
+    "hot_plate_temp": [
+        "45"
+    ],
+    "hot_plate_temp_initial_layer": [
+        "50"
+    ],
+    "pressure_advance": [
+        "0.1"
+    ],
+    "slow_down_layer_time": [
+        "8"
+    ],
+    "slow_down_min_speed": [
+        "15"
+    ],
+    "compatible_printers": [
+        "Flashforge AD5X 0.25 nozzle"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ]
+}

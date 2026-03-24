@@ -1,0 +1,19 @@
+{
+    "type": "process",
+    "name": "fdm_process_f5t_single_0.10_nozzle_0.25",
+    "inherits": "fdm_process_f5t_single_common",
+    "from": "system",
+    "instantiation": "false",
+    "layer_height": "0.10",
+    "initial_layer_print_height": "0.14",
+    "line_width": "0.30",
+    "initial_layer_line_width": "0.35",
+    "gap_infill_speed": "220",
+    "initial_layer_infill_speed": "90",
+    "initial_layer_speed": "40",
+    "inner_wall_speed": "220",
+    "internal_solid_infill_speed": "220",
+    "outer_wall_speed": "140",
+    "sparse_infill_speed": "280",
+    "default_acceleration": "12000"
+}

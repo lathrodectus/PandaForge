@@ -1,0 +1,38 @@
+{
+    "type": "filament",
+    "name": "Creality PETG @base",
+    "inherits": "fdm_filament_pet",
+    "from": "system",
+    "filament_id": "CR02",
+    "instantiation": "false",
+    "filament_vendor": [
+        "Creality"
+    ],
+    "filament_flow_ratio": [
+        "0.95"
+    ],
+    "filament_max_volumetric_speed": [
+        "18"
+    ],
+    "filament_density": [
+        "1.27"
+    ],
+    "nozzle_temperature": [
+        "235"
+    ],
+    "nozzle_temperature_initial_layer": [
+        "240"
+    ],
+    "hot_plate_temp": [
+        "70"
+    ],
+    "hot_plate_temp_initial_layer": [
+        "75"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "pressure_advance": [
+        "0.035"
+    ]
+}

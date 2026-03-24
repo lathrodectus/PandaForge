@@ -1,0 +1,14 @@
+{
+    "type": "process",
+    "name": "0.56mm Standard @MyToolChanger",
+    "inherits": "fdm_process_mytoolchanger_common",
+    "from": "system",
+    "setting_id": "GP004",
+    "instantiation": "true",
+    "layer_height": "0.56",
+    "support_top_z_distance": "0.24",
+    "support_bottom_z_distance": "0.24",
+    "compatible_printers": [
+        "MyToolChanger 0.8 nozzle"
+    ]
+}
