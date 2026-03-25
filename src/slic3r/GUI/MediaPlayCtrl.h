@@ -75,16 +75,19 @@ private:
     static bool get_stream_url(std::string *url = nullptr);
 
 private:
-    static constexpr wxMediaState MEDIASTATE_IDLE = (wxMediaState) 3;
-    static constexpr wxMediaState MEDIASTATE_INITIALIZING = (wxMediaState) 4;
-    static constexpr wxMediaState MEDIASTATE_LOADING = (wxMediaState) 5;
-    static constexpr wxMediaState MEDIASTATE_BUFFERING = (wxMediaState) 6;
+    // wxMediaState only defines wx's built-in states; we also use higher sentinel
+    // values for our local loading pipeline, so keep them as runtime casts.
+    static wxMediaState media_state_from_raw(int value) { return static_cast<wxMediaState>(value); }
+    static wxMediaState media_state_idle() { return media_state_from_raw(3); }
+    static wxMediaState media_state_initializing() { return media_state_from_raw(4); }
+    static wxMediaState media_state_loading() { return media_state_from_raw(5); }
+    static wxMediaState media_state_buffering() { return media_state_from_raw(6); }
 
     // token
     std::shared_ptr<int> m_token = std::make_shared<int>(0);
 
     wxMediaCtrl3 * m_media_ctrl;
-    wxMediaState m_last_state = MEDIASTATE_IDLE;
+    wxMediaState m_last_state = media_state_idle();
     std::string m_machine;
     int m_lan_proto = 0;
     std::string m_lan_ip;

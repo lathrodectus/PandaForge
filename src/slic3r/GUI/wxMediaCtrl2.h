@@ -38,7 +38,7 @@ public:
 
     int GetLastError() const { return m_error; }
 
-    static constexpr wxMediaState MEDIASTATE_BUFFERING = (wxMediaState) 6;
+    static wxMediaState media_state_buffering() { return media_state_from_raw(6); }
 
 protected:
     void DoSetSize(int x, int y, int width, int height, int sizeFlags) override;
@@ -48,6 +48,7 @@ protected:
     void NotifyStopped();
 
 private:
+    static wxMediaState media_state_from_raw(int value) { return static_cast<wxMediaState>(value); }
     void create_player();
     void * m_player = nullptr;
     wxMediaState m_state = wxMEDIASTATE_STOPPED;

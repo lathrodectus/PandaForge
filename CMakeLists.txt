@@ -10,6 +10,7 @@ project(BambuStudio)
 include("version.inc")
 include(GNUInstallDirs)
 include(CMakeDependentOption)
+include(CheckCXXCompilerFlag)
 
 set(SLIC3R_RESOURCES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/resources")
 file(TO_NATIVE_PATH "${SLIC3R_RESOURCES_DIR}" SLIC3R_RESOURCES_DIR_WIN)
@@ -276,7 +277,10 @@ if (NOT MSVC AND ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMP
     endif()
 
     if((${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang" OR ${CMAKE_CXX_COMPILER_ID} STREQUAL "AppleClang") AND ${CMAKE_CXX_COMPILER_VERSION} VERSION_GREATER 15)
-        add_compile_options(-Wno-error=enum-constexpr-conversion)
+        check_cxx_compiler_flag("-Wno-error=enum-constexpr-conversion" SLIC3R_HAS_WNO_ERROR_ENUM_CONSTEXPR_CONVERSION)
+        if (SLIC3R_HAS_WNO_ERROR_ENUM_CONSTEXPR_CONVERSION)
+            add_compile_options(-Wno-error=enum-constexpr-conversion)
+        endif()
     endif()
 
     #GCC generates loads of -Wunknown-pragmas when compiling igl. The fix is not easy due to a bug in gcc, see

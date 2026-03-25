@@ -28,7 +28,9 @@ bambustudio_add_cmake_project(wxWidgets
     GIT_TAG master
     DEPENDS ${PNG_PKG} ${ZLIB_PKG} ${EXPAT_PKG} ${TIFF_PKG} ${JPEG_PKG}
     CMAKE_ARGS
-        -DwxBUILD_PRECOMP=ON
+        # Current CMake rejects wx's bundled cotire try_compile test unless
+        # it is patched separately, so keep precompiled headers off here.
+        -DwxBUILD_PRECOMP=OFF
         ${_wx_toolkit}
         "-DCMAKE_DEBUG_POSTFIX:STRING="
         -DwxBUILD_DEBUG_LEVEL=0

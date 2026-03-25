@@ -60,7 +60,7 @@ static void start_new_slicer_or_gcodeviewer(const NewSlicerInstanceType instance
 	boost::filesystem::path bin_path = into_path(wxStandardPaths::Get().GetExecutablePath());
 #if defined(__APPLE__)
 	{
-		bin_path = bin_path.parent_path() / "BambuStudio";
+		bin_path = bin_path.parent_path() / SLIC3R_APP_KEY;
         //bin_path = "/usr/bin/open";
 		// On Apple the wxExecute fails, thus we use boost::process instead.
 		BOOST_LOG_TRIVIAL(info) << "Trying to spawn a new slicer \"" << bin_path.string() << "\"";

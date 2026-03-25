@@ -127,6 +127,7 @@ function(bambustudio_add_cmake_project projectname)
         ${_gen}
         CMAKE_ARGS
             -DCMAKE_INSTALL_PREFIX:STRING=${DESTDIR}/usr/local
+            -DCMAKE_POLICY_VERSION_MINIMUM:STRING=3.5
             -DCMAKE_MODULE_PATH:STRING=${PROJECT_SOURCE_DIR}/../cmake/modules
             -DCMAKE_PREFIX_PATH:STRING=${DESTDIR}/usr/local
             -DCMAKE_DEBUG_POSTFIX:STRING=d

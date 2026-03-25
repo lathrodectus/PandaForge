@@ -7,7 +7,7 @@ Prebuilt Windows, macOS 64-bit and Linux releases are available through the [git
 
 Bambu Studio is based on [PrusaSlicer](https://github.com/prusa3d/PrusaSlicer) by Prusa Research, which is from [Slic3r](https://github.com/Slic3r/Slic3r) by Alessandro Ranellucci and the RepRap community.
 
-See the [wiki](https://github.com/bambulab/BambuStudio/wiki) and the [documentation directory](https://github.com/bambulab/BambuStudio/tree/master/doc) for more information.
+See the [wiki](https://github.com/bambulab/BambuStudio/wiki) for more information.
 
 # What are Bambu Studio's main features?
 Key features are:
@@ -30,11 +30,13 @@ Other major features are:
 - Flushing transition-filament into infill/object during filament change
 
 # How to compile
-Following platforms are currently supported to compile:
-- Windows 64-bit, [Compile Guide](https://github.com/bambulab/BambuStudio/wiki/Windows-Compile-Guide)
-- Mac 64-bit, [Compile Guide](https://github.com/bambulab/BambuStudio/wiki/Mac-Compile-Guide)
-- Linux, [Compile Guide](https://github.com/bambulab/BambuStudio/wiki/Linux-Compile-Guide)
-  - currently we only provide linux appimages on [github releases](https://github.com/bambulab/BambuStudio/releases) for Ubuntu/Fedora, and a [flathub version](https://flathub.org/apps/com.bambulab.BambuStudio) can be used for all the linux platforms
+Start with [INDEX.md](INDEX.md) for the current branch docs.
+
+- macOS: [docs/03-task-guides/build.md](docs/03-task-guides/build.md), which points to the proven local build guide
+- Linux: `BuildLinux.sh`
+- Windows: `build_win.bat`
+
+Upstream wiki pages may still be useful background, but the local docs are the branch-accurate source of truth.
 
 # Report issue
 You can add an issue to the [github tracker](https://github.com/bambulab/BambuStudio/issues) if **it isn't already present.**

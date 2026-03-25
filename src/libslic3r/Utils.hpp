@@ -163,23 +163,23 @@ private:
 #ifdef _WIN32
         const char *env = std::getenv("USERPROFILE");
     #if BBL_RELEASE_TO_PUBLIC
-        const size_t len = strlen("\\AppData\\Roaming\\BambuStudio\\user");
+        const size_t len = strlen("\\AppData\\Roaming\\" SLIC3R_APP_KEY "\\user");
     #else
-        const size_t len = BBL_INTERNAL_TESTING == 1 ? strlen("\\AppData\\Roaming\\BambuStudioInternal\\user") : strlen("\\AppData\\Roaming\\BambuStudioBeta\\user");
+        const size_t len = BBL_INTERNAL_TESTING == 1 ? strlen("\\AppData\\Roaming\\" SLIC3R_APP_KEY "Internal\\user") : strlen("\\AppData\\Roaming\\" SLIC3R_APP_KEY "Beta\\user");
     #endif
 #elif __APPLE__
         const char *env = std::getenv("HOME");
     #if BBL_RELEASE_TO_PUBLIC
-        const size_t len = strlen("/Library/Application Support/BambuStudio/user");
+        const size_t len = strlen("/Library/Application Support/" SLIC3R_APP_KEY "/user");
     #else
-        const size_t len = BBL_INTERNAL_TESTING == 1 ? strlen("/Library/Application Support/BambuStudioInternal/user") : strlen("/Library/Application Support/BambuStudioBeta/user");
+        const size_t len = BBL_INTERNAL_TESTING == 1 ? strlen("/Library/Application Support/" SLIC3R_APP_KEY "Internal/user") : strlen("/Library/Application Support/" SLIC3R_APP_KEY "Beta/user");
     #endif
 #elif __linux__
         const char *env = std::getenv("HOME");
     #if BBL_RELEASE_TO_PUBLIC
-        const size_t len = strlen("/.config/BambuStudio/user");
+        const size_t len = strlen("/.config/" SLIC3R_APP_KEY "/user");
     #else
-        const size_t len = BBL_INTERNAL_TESTING == 1 ? strlen("/.config/BambuStudioInternal/user") : strlen("/.config/BambuStudioBeta/user");
+        const size_t len = BBL_INTERNAL_TESTING == 1 ? strlen("/.config/" SLIC3R_APP_KEY "Internal/user") : strlen("/.config/" SLIC3R_APP_KEY "Beta/user");
     #endif
 #else
         // Unsupported platform, return raw input
