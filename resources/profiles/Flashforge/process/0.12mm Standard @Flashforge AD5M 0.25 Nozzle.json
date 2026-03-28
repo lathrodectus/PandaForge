@@ -1,0 +1,11 @@
+{
+    "type": "process",
+    "name": "0.12mm Standard @Flashforge AD5M 0.25 Nozzle",
+    "inherits": "0.12mm Standard @Flashforge AD5M Pro 0.25 Nozzle",
+    "from": "system",
+    "instantiation": "true",
+    "compatible_printers": [
+        "Flashforge Adventurer 5M Pro 0.25 Nozzle"
+    ],
+    "print_settings_id": "0.12mm Standard @Flashforge AD5M 0.25 Nozzle"
+}

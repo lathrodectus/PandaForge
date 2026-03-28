@@ -234,6 +234,7 @@ wxDEFINE_EVENT(EVT_HELIO_INPUT_DLG, SimpleEvent);
 
 #define PRINTER_THUMBNAIL_SIZE (wxSize(FromDIP(48), FromDIP(48)))
 #define PRINTER_PANEL_SIZE (wxSize(FromDIP(96), FromDIP(68)))
+#define PRINTER_STACKED_PANEL_SIZE (wxSize(FromDIP(96), FromDIP(98)))
 #define BTN_SYNC_SIZE (wxSize(FromDIP(96), FromDIP(98)))
 
 static string get_diameter_string(float diameter)
@@ -686,33 +687,28 @@ struct Sidebar::priv
 void Sidebar::priv::layout_printer(bool isBBL, bool isDual)
 {
     isDual = isDual && isBBL;  // It indicates a multi-extruder layout.
+    panel_printer_preset->SetMinSize(PRINTER_STACKED_PANEL_SIZE);
+    panel_printer_bed->SetMinSize(PRINTER_STACKED_PANEL_SIZE);
+
     // Printer - preset
     if (auto sizer = static_cast<wxBoxSizer *>(panel_printer_preset->GetSizer());
-            sizer == nullptr || isBBL != (sizer->GetOrientation() == wxVERTICAL)) {
+            sizer == nullptr || sizer->GetOrientation() != wxVERTICAL) {
         wxBoxSizer *hsizer_printer_btn = new wxBoxSizer(wxHORIZONTAL);
         hsizer_printer_btn->AddStretchSpacer(1);
         hsizer_printer_btn->Add(btn_edit_printer, 0);
         hsizer_printer_btn->Add(btn_connect_printer, 0, wxALIGN_CENTER | wxLEFT, FromDIP(4));
-        combo_printer->SetWindowStyle(combo_printer->GetWindowStyle() & ~wxALIGN_MASK | (isBBL ? wxALIGN_CENTER_HORIZONTAL : wxALIGN_RIGHT));
-        if (isBBL) {
-            wxBoxSizer *vsizer = new wxBoxSizer(wxVERTICAL);
-            wxBoxSizer *hsizer = new wxBoxSizer(wxHORIZONTAL);
-            hsizer->AddStretchSpacer(1);
-            hsizer->Add(image_printer, 0, wxEXPAND | wxTOP, FromDIP(8));
-            hsizer->Add(hsizer_printer_btn, 1, wxEXPAND, 0);
-            hsizer->AddSpacer(FromDIP(6));
-            vsizer->AddSpacer(FromDIP(4));
-            vsizer->Add(hsizer, 0, wxEXPAND | wxLEFT | wxRIGHT, FromDIP(8));
-            vsizer->Add(combo_printer, 0, wxEXPAND | wxALL, FromDIP(4));
-            panel_printer_preset->SetSizer(vsizer);
-        } else {
-            wxBoxSizer *hsizer = new wxBoxSizer(wxHORIZONTAL);
-            hsizer->Add(image_printer, 0, wxLEFT | wxALIGN_CENTER, FromDIP(4));
-            hsizer->Add(combo_printer, 1, wxALIGN_CENTRE | wxLEFT | wxRIGHT, FromDIP(6));
-            hsizer->Add(hsizer_printer_btn, 0, wxALIGN_TOP | wxTOP | wxRIGHT, FromDIP(4));
-            hsizer->AddSpacer(FromDIP(10));
-            panel_printer_preset->SetSizer(hsizer);
-        }
+        combo_printer->SetWindowStyle((combo_printer->GetWindowStyle() & ~wxALIGN_MASK) | wxALIGN_CENTER_HORIZONTAL);
+
+        wxBoxSizer *vsizer = new wxBoxSizer(wxVERTICAL);
+        wxBoxSizer *hsizer = new wxBoxSizer(wxHORIZONTAL);
+        hsizer->AddStretchSpacer(1);
+        hsizer->Add(image_printer, 0, wxEXPAND | wxTOP, FromDIP(8));
+        hsizer->Add(hsizer_printer_btn, 1, wxEXPAND, 0);
+        hsizer->AddSpacer(FromDIP(6));
+        vsizer->AddSpacer(FromDIP(4));
+        vsizer->Add(hsizer, 0, wxEXPAND | wxLEFT | wxRIGHT, FromDIP(8));
+        vsizer->Add(combo_printer, 0, wxEXPAND | wxALL, FromDIP(4));
+        panel_printer_preset->SetSizer(vsizer);
     }
 
     if (vsizer_printer->GetItemCount() == 0) {
@@ -739,10 +735,10 @@ void Sidebar::priv::layout_printer(bool isBBL, bool isDual)
 
     btn_connect_printer->Show(!isBBL);
     btn_sync_printer->Show(isBBL);
-    panel_printer_bed->Show(isBBL);
+    panel_printer_bed->Show(true);
     vsizer_printer->GetItem(2)->GetSizer()->GetItem(1)->Show(isDual);
     vsizer_printer->GetItem(2)->Show(isBBL && isDual);
-    vsizer_printer->GetItem(3)->Show(isBBL && !isDual);
+    vsizer_printer->GetItem(3)->Show(!isDual);
 }
 
 void Sidebar::priv::flush_printer_sync(bool restart)
@@ -1916,7 +1912,7 @@ Sidebar::Sidebar(Plater *parent)
         p->panel_printer_preset = new StaticBox(p->m_panel_printer_content);
         p->panel_printer_preset->SetCornerRadius(8);
         p->panel_printer_preset->SetBorderColor(panel_bd_col);
-        p->panel_printer_preset->SetMinSize(PRINTER_PANEL_SIZE);
+        p->panel_printer_preset->SetMinSize(PRINTER_STACKED_PANEL_SIZE);
         p->panel_printer_preset->Bind(wxEVT_LEFT_DOWN, [this](auto & evt) {
             p->combo_printer->wxEvtHandler::ProcessEvent(evt);
         });
@@ -1938,7 +1934,7 @@ Sidebar::Sidebar(Plater *parent)
         });
 
         PlaterPresetComboBox *combo_printer = new PlaterPresetComboBox(p->panel_printer_preset, Preset::TYPE_PRINTER);
-        combo_printer->SetWindowStyle(combo_printer->GetWindowStyle() & ~wxALIGN_MASK | wxALIGN_CENTER_HORIZONTAL);
+        combo_printer->SetWindowStyle((combo_printer->GetWindowStyle() & ~wxALIGN_MASK) | wxALIGN_CENTER_HORIZONTAL);
         combo_printer->SetBorderWidth(0);
         p->combo_printer = combo_printer;
 
@@ -1963,7 +1959,7 @@ Sidebar::Sidebar(Plater *parent)
         p->panel_printer_bed = new StaticBox(p->m_panel_printer_content);
         p->panel_printer_bed->SetCornerRadius(8);
         p->panel_printer_bed->SetBorderColor(panel_bd_col);
-        p->panel_printer_bed->SetMinSize(PRINTER_PANEL_SIZE);
+        p->panel_printer_bed->SetMinSize(PRINTER_STACKED_PANEL_SIZE);
         p->panel_printer_bed->Bind(wxEVT_LEFT_DOWN, [this](auto &evt) {
             p->combo_printer_bed->wxEvtHandler::ProcessEvent(evt);
         });
@@ -2613,7 +2609,7 @@ void Sidebar::update_all_preset_comboboxes()
         }
 
         p->combo_printer_bed->SelectAndNotify(btPEI - 1);
-        p->combo_printer_bed->Disable();
+        p->combo_printer_bed->Enable();
     }
 
     // Update the print choosers to only contain the compatible presets, update the dirty flags.
@@ -2857,8 +2853,12 @@ void Sidebar::save_bed_type_to_config(const std::string &bed_type_name)
 }
 
 BedType Sidebar::get_cur_select_bed_type() {
+    if (m_cur_combox_bed_types.empty()) {
+        return BedType::btPEI;
+    }
+
     int selection = p->combo_printer_bed->GetSelection();
-    if (selection < 0 && selection >= m_cur_combox_bed_types.size()) {
+    if (selection < 0 || selection >= static_cast<int>(m_cur_combox_bed_types.size())) {
         p->combo_printer_bed->SetSelection(0);
         selection = 0;
     }
@@ -2887,8 +2887,12 @@ void Sidebar::set_bed_type_accord_combox(BedType bed_type) {
             return;
         }
     }
-    use_default_bed_type();
-    //re save preferred bed type
+
+    if (m_cur_combox_bed_types.empty()) {
+        return;
+    }
+
+    p->combo_printer_bed->SelectAndNotify(0);
     auto        select_bed_type = get_cur_select_bed_type();
     std::string bed_type_name   = print_config_def.get("curr_bed_type")->enum_values[int(select_bed_type) - 1];
     save_bed_type_to_config(bed_type_name);
@@ -2946,15 +2950,14 @@ bool Sidebar::reset_bed_type_combox_choices(bool is_sidebar_init)
 bool Sidebar::use_default_bed_type(bool is_bbl_preset)
 {
     auto  bundle                          = wxGetApp().preset_bundle;
-    const Preset *curr                    = &bundle->printers.get_selected_preset();
+    Preset *curr                          = &bundle->printers.get_selected_preset();
     const VendorProfile::PrinterModel *pm = PresetUtils::system_printer_model(*curr);
     if (is_bbl_preset && pm && pm->default_bed_type.size() > 0) {
        return set_bed_type(pm->default_bed_type);
     }
-    auto        select_bed_type = get_cur_select_bed_type();
-    std::string bed_type_name   = print_config_def.get("curr_bed_type")->enum_values[int(select_bed_type) - 1];
-    save_bed_type_to_config(bed_type_name);
-    return false;
+
+    set_bed_type_accord_combox(curr->get_default_bed_type(bundle));
+    return true;
 }
 
 void Sidebar::change_top_border_for_mode_sizer(bool increase_border)
@@ -3002,7 +3005,8 @@ void Sidebar::msw_rescale()
 
     p->btn_sync_printer->SetPaddingSize({FromDIP(6), FromDIP(12)});
     p->btn_sync_printer->SetMinSize(BTN_SYNC_SIZE);
-    p->panel_printer_bed->SetMinSize(PRINTER_PANEL_SIZE);
+    p->panel_printer_preset->SetMinSize(PRINTER_STACKED_PANEL_SIZE);
+    p->panel_printer_bed->SetMinSize(PRINTER_STACKED_PANEL_SIZE);
     p->btn_sync_printer->Rescale();
 #if 0
     if (p->mode_sizer)
@@ -4010,15 +4014,13 @@ void Sidebar::update_printer_thumbnail()
 {
     auto& preset_bundle = wxGetApp().preset_bundle;
     Preset & selected_preset = preset_bundle->printers.get_edited_preset();
-    std::string printer_type    = selected_preset.get_current_printer_type(preset_bundle);
+    std::string printer_type = selected_preset.get_current_printer_type(preset_bundle);
     try {
-        auto   image_name = "printer_preview_" + printer_type;
-        auto full_path  = into_u8(Slic3r::GUI::from_u8(Slic3r::var(image_name + ".png")));
-        if (boost::filesystem::exists(full_path)) {
-            p->image_printer->SetBitmap(create_scaled_bitmap(image_name, this, 48));
-        }else{
-            p->image_printer->SetBitmap(create_scaled_bitmap("printer_placeholder", this, 48));
+        if (printer_type.empty()) {
+            throw std::runtime_error("missing printer type");
         }
+
+        p->image_printer->SetBitmap(create_scaled_bitmap("printer_preview_" + printer_type, this, 48));
     }
     catch (...) {
         p->image_printer->SetBitmap(create_scaled_bitmap("printer_placeholder", this, 48));

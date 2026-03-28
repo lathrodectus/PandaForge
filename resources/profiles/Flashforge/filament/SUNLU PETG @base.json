@@ -1,0 +1,38 @@
+{
+    "type": "filament",
+    "name": "SUNLU PETG @base",
+    "inherits": "fdm_filament_pet",
+    "from": "system",
+    "filament_id": "SUN02",
+    "instantiation": "false",
+    "filament_vendor": [
+        "SUNLU"
+    ],
+    "filament_flow_ratio": [
+        "0.95"
+    ],
+    "filament_max_volumetric_speed": [
+        "18"
+    ],
+    "filament_density": [
+        "1.27"
+    ],
+    "nozzle_temperature": [
+        "240"
+    ],
+    "nozzle_temperature_initial_layer": [
+        "245"
+    ],
+    "hot_plate_temp": [
+        "75"
+    ],
+    "hot_plate_temp_initial_layer": [
+        "80"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "pressure_advance": [
+        "0.032"
+    ]
+}

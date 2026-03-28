@@ -1,0 +1,38 @@
+{
+    "type": "filament",
+    "name": "eSUN PLA+ @base",
+    "inherits": "fdm_filament_pla",
+    "from": "system",
+    "filament_id": "ESUN01",
+    "instantiation": "false",
+    "filament_vendor": [
+        "eSUN"
+    ],
+    "filament_flow_ratio": [
+        "0.98"
+    ],
+    "filament_max_volumetric_speed": [
+        "22"
+    ],
+    "filament_density": [
+        "1.25"
+    ],
+    "nozzle_temperature": [
+        "215"
+    ],
+    "nozzle_temperature_initial_layer": [
+        "220"
+    ],
+    "hot_plate_temp": [
+        "60"
+    ],
+    "hot_plate_temp_initial_layer": [
+        "65"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "pressure_advance": [
+        "0.032"
+    ]
+}

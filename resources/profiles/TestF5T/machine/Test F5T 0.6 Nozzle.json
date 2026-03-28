@@ -1,0 +1,26 @@
+{
+    "type": "machine",
+    "name": "Test F5T 0.6 Nozzle",
+    "inherits": "Test F5T 0.4 Nozzle",
+    "from": "system",
+    "setting_id": "GM_F5T_006",
+    "instantiation": "true",
+    "printer_model": "Test F5T",
+    "printer_variant": "0.6",
+    "default_print_profile": "0.30mm Standard @Test F5T 0.6 nozzle",
+    "nozzle_diameter": [
+        "0.6"
+    ],
+    "max_layer_height": [
+        "0.42"
+    ],
+    "min_layer_height": [
+        "0.12"
+    ],
+    "retraction_length": [
+        "1.2"
+    ],
+    "upward_compatible_machine": [
+        "Test F5T 0.4 Nozzle"
+    ]
+}

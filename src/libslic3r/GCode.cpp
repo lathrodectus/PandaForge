@@ -2675,6 +2675,10 @@ void GCode::_do_export(Print& print, GCodeOutputStream &file, ThumbnailsGenerato
         config.set_key_value("layer_num", new ConfigOptionInt(m_layer_index));
         std::string filament_start_gcode = this->placeholder_parser_process("filament_start_gcode", print.config().filament_start_gcode.values.at(initial_non_support_extruder_id), initial_non_support_extruder_id,&config);
         file.writeln(filament_start_gcode);
+        // Keep the manual startup path in sync with set_extruder(), which would
+        // normally emit pressure advance after filament start G-code.
+        if (!this->is_BBL_Printer() && m_config.enable_pressure_advance.get_at(initial_non_support_extruder_id))
+            file.write(m_writer.set_pressure_advance(m_config.pressure_advance.get_at(initial_non_support_extruder_id)));
         // mark the first filament used in print
         file.write_format(";VT%d\n", initial_extruder_id);
     }

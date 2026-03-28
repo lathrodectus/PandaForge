@@ -1,0 +1,16 @@
+{
+    "type": "machine",
+    "name": "Flashforge Adventurer 5M Pro 0.25 Nozzle",
+    "inherits": "Flashforge Adventurer 5M Pro 0.4 Nozzle",
+    "from": "system",
+    "setting_id": "GM_FF_AD5MP_025",
+    "instantiation": "true",
+    "printer_model": "Flashforge Adventurer 5M Pro",
+    "printer_variant": "0.25",
+    "default_print_profile": "0.15mm Standard @Flashforge AD5M Pro 0.25 nozzle",
+    "nozzle_diameter": ["0.25"],
+    "max_layer_height": ["0.20"],
+    "min_layer_height": ["0.08"],
+    "retraction_length": ["0.6"],
+    "upward_compatible_machine": ["Flashforge Adventurer 5M Pro 0.4 Nozzle"]
+}
