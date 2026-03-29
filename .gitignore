@@ -31,5 +31,5 @@ doc/
 test.js
 /.cache/
 .clangd
-INDEX.md
-docs/
+/AGENTS.md
+/.agents/
