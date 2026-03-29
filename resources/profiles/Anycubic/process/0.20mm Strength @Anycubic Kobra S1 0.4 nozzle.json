@@ -3,7 +3,7 @@
     "name": "0.20mm Strength @Anycubic Kobra S1 0.4 nozzle",
     "inherits": "0.20mm Standard @Anycubic Kobra S1 0.4 nozzle",
     "from": "system",
-    "setting_id": "GP013",
+    "setting_id": "GP_0_20MM_STRENGTH_ANYCUBIC_KOBRA_S1_0_4_NOZZLE",
     "instantiation": "true",
     "print_settings_id": "0.20mm Strength @Anycubic Kobra S1 0.4 nozzle",
     "compatible_printers": [

@@ -1,20 +1,20 @@
 {
     "type": "machine",
-    "name": "Anycubic Kobra S1 0.4 nozzle",
-    "inherits": "fdm_machine_common",
+    "name": "Anycubic Kobra S1 0.8 nozzle",
+    "inherits": "Anycubic Kobra S1 0.4 nozzle",
     "from": "system",
-    "setting_id": "GM_ANYCUBIC_KOBRA_S1_0_4_NOZZLE",
+    "setting_id": "GM_ANYCUBIC_KOBRA_S1_0_8_NOZZLE",
     "instantiation": "true",
     "printer_technology": "FFF",
-    "printer_settings_id": "Anycubic Kobra S1 0.4 nozzle",
+    "printer_settings_id": "Anycubic Kobra S1 0.8 nozzle",
     "printer_model": "Anycubic Kobra S1",
-    "printer_variant": "0.4",
+    "printer_variant": "0.8",
     "nozzle_diameter": [
-        "0.4"
+        "0.8"
     ],
-    "default_print_profile": "0.20mm Standard @Anycubic Kobra S1 0.4 nozzle",
+    "default_print_profile": "0.40mm Standard @Anycubic Kobra S1 0.8 nozzle",
     "default_filament_profile": [
-        "Anycubic PLA @Anycubic Kobra S1 0.4 nozzle"
+        "Anycubic PLA @Anycubic Kobra S1 0.8 nozzle"
     ],
     "disable_m73": "1",
     "gcode_flavor": "klipper",
@@ -146,10 +146,10 @@
     "machine_unload_filament_time": "0",
     "manual_filament_change": "0",
     "max_layer_height": [
-        "0.28"
+        "0.56"
     ],
     "min_layer_height": [
-        "0.08"
+        "0.16"
     ],
     "nozzle_height": "4",
     "nozzle_hrc": "0",
@@ -174,7 +174,7 @@
         "0.3"
     ],
     "retract_lift_below": [
-        "249"
+        "249.6"
     ],
     "retract_lift_enforce": [
         "All Surfaces"
@@ -192,7 +192,7 @@
         "18"
     ],
     "retraction_length": [
-        "0.8"
+        "1"
     ],
     "retraction_minimum_travel": [
         "1"

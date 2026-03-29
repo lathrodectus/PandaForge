@@ -1,5 +1,7 @@
 # BambuStudio Profile Creation Rules
 
+> Note: the exact branch-specific vendor loader schema now lives in `docs/02-reference/profile-system.md`. Use this file as a pattern guide, but use the reference doc for source-of-truth loader behavior.
+
 > **Version:** 1.1  
 > **Last Updated:** March 10, 2026  
 > **Applies to:** pandaforge / BambuStudio v2.5.0.66

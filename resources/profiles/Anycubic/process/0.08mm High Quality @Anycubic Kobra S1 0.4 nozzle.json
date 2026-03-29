@@ -3,7 +3,7 @@
     "name": "0.08mm High Quality @Anycubic Kobra S1 0.4 nozzle",
     "inherits": "0.08mm Extra Fine @Anycubic Kobra S1 0.4 nozzle",
     "from": "system",
-    "setting_id": "GP099",
+    "setting_id": "GP_0_08MM_HIGH_QUALITY_ANYCUBIC_KOBRA_S1_0_4_NOZZLE",
     "instantiation": "true",
     "print_settings_id": "0.08mm High Quality @Anycubic Kobra S1 0.4 nozzle",
     "compatible_printers": [
